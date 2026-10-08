@@ -1,0 +1,28 @@
+### Android Studio / IntelliJ ###
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Gradle ###
+.gradle/
+.kotlin/
+**/build/
+
+### Android build outputs ###
+/captures/
+.externalNativeBuild/
+.cxx/
+*.hprof
+
+### Local configuration and secrets ###
+local.properties
+*.jks
+*.keystore
+
+### Operating system files ###
+.DS_Store
+Thumbs.db
+
+### Logs ###
+*.log
