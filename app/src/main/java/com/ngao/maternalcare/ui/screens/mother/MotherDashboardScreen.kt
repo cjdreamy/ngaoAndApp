@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -191,7 +192,7 @@ fun MotherDashboardScreen(
                 shape = RoundedCornerShape(14.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickableCard { onOpenEducation() }
+                    .clickable { onOpenEducation() }
             ) {
                 Row(
                     Modifier.padding(18.dp),
@@ -367,6 +368,3 @@ private fun CheckInRow(checkIn: CheckIn) {
         }
     }
 }
-
-private fun Modifier.clickableCard(onClick: () -> Unit): Modifier =
-    this.then(androidx.compose.foundation.clickable(onClick = onClick))

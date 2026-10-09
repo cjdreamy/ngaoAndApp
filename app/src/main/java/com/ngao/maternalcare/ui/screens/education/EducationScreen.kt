@@ -1,5 +1,6 @@
 package com.ngao.maternalcare.ui.screens.education
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,6 +17,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ngao.maternalcare.ui.theme.BrandBlue
 import com.ngao.maternalcare.ui.theme.TextSecondary
+
+
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

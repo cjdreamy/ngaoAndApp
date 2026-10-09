@@ -19,8 +19,8 @@ android {
         // Point these at YOUR Supabase project (same one the web app uses).
         // Project Settings -> API in the Supabase dashboard.
         // ---------------------------------------------------------------
-        buildConfigField("String", "SUPABASE_URL", "\"https://YOUR-PROJECT-REF.supabase.co\"")
-        buildConfigField("String", "SUPABASE_ANON_KEY", "\"YOUR-SUPABASE-ANON-KEY\"")
+        buildConfigField("String", "SUPABASE_URL", "\"https://kcdiklupbsolubobrxci.supabase.co\"")
+        buildConfigField("String", "SUPABASE_ANON_KEY", "\"sb_publishable_ujms1-nmhAeZ4rBEHbFShw_w3LRNky9\"")
     }
 
     buildTypes {
@@ -67,6 +67,10 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
+
+    //added this later
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.4")
+    implementation("androidx.compose.foundation:foundation")
 
     // Networking (talks directly to Supabase's REST + Auth (GoTrue) endpoints)
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
