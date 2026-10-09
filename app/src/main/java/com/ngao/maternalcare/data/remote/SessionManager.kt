@@ -39,7 +39,7 @@ class SessionManager(private val context: Context) {
         userId: String,
         email: String?,
         role: String,
-        fullName: String
+        fullName: String?
     ) {
         context.dataStore.edit { prefs ->
             prefs[Keys.ACCESS_TOKEN] = accessToken
@@ -47,7 +47,7 @@ class SessionManager(private val context: Context) {
             prefs[Keys.USER_ID] = userId
             prefs[Keys.EMAIL] = email ?: ""
             prefs[Keys.ROLE] = role
-            prefs[Keys.FULL_NAME] = fullName
+            prefs[Keys.FULL_NAME] = fullName ?: ""
         }
     }
 

@@ -47,8 +47,8 @@ data class SupabaseUser(
 @Serializable
 data class Profile(
     val id: String,
-    @SerialName("full_name") val fullName: String,
-    val role: String, // "mother" | "provider"
+    @SerialName("full_name") val fullName: String? = null,
+    val role: String? = null, // "mother" | "provider"
     val phone: String? = null
 )
 

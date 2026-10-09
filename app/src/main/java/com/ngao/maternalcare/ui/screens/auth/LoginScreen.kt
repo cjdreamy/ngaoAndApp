@@ -33,7 +33,7 @@ fun LoginScreen(
     var password by remember { mutableStateOf("") }
 
     LaunchedEffect(uiState.loggedInRole) {
-        //uiState.loggedInRole?.let { onLoginSuccess(it) }
+        uiState.loggedInRole?.let { onLoginSuccess(it) }
     }
 
     Box(

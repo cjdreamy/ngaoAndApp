@@ -29,7 +29,8 @@ fun ProviderDashboardScreen(
     viewModel: ProviderDashboardViewModel,
     fullName: String,
     onLogout: () -> Unit,
-    onOpenEducation: () -> Unit
+    onOpenEducation: () -> Unit,
+    onOpenChat: () -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     var selectedTab by remember { mutableStateOf(ProviderTab.FLAGGED) }
@@ -40,6 +41,9 @@ fun ProviderDashboardScreen(
                 title = { Text("NgaoMaternal Care") },
                 actions = {
                     TextButton(onClick = onOpenEducation) { Text("Education") }
+                    IconButton(onClick = onOpenChat) {
+                        Icon(Icons.Filled.ChatBubbleOutline, contentDescription = "Open chat assistant")
+                    }
                     IconButton(onClick = onLogout) {
                         Icon(Icons.Filled.Logout, contentDescription = "Log out")
                     }
@@ -249,7 +253,7 @@ private fun PatientsList(patients: List<Profile>) {
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column {
-                        Text(patient.fullName, style = MaterialTheme.typography.titleMedium)
+                        Text(patient.fullName ?: "Patient", style = MaterialTheme.typography.titleMedium)
                         patient.phone?.let { Text(it, color = TextSecondary, style = MaterialTheme.typography.bodyMedium) }
                     }
                     OutlinedButton(onClick = {}) { Text("View") }

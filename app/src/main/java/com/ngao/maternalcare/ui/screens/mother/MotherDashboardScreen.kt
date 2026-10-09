@@ -30,6 +30,7 @@ fun MotherDashboardScreen(
     viewModel: MotherDashboardViewModel,
     onStartCheckIn: () -> Unit,
     onOpenEducation: () -> Unit,
+    onOpenChat: () -> Unit,
     onLogout: () -> Unit = {}
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -46,6 +47,9 @@ fun MotherDashboardScreen(
         TopAppBar(
             title = { Text("NgaoMaternal Care") },
             actions = {
+                IconButton(onClick = onOpenChat) {
+                    Icon(Icons.Filled.ChatBubbleOutline, contentDescription = "Open chat assistant")
+                }
                 IconButton(onClick = onLogout) {
                     Icon(Icons.Filled.Logout, contentDescription = "Log out")
                 }

@@ -17,6 +17,7 @@ import com.ngao.maternalcare.ui.screens.auth.AuthViewModel
 import com.ngao.maternalcare.ui.screens.auth.LoginScreen
 import com.ngao.maternalcare.ui.screens.auth.SignUpScreen
 import com.ngao.maternalcare.ui.screens.auth.SplashScreen
+import com.ngao.maternalcare.ui.screens.chat.ChatScreen
 import com.ngao.maternalcare.ui.screens.education.EducationScreen
 import com.ngao.maternalcare.ui.screens.education.EducationViewModel
 import com.ngao.maternalcare.ui.screens.mother.CheckInScreen
@@ -34,6 +35,7 @@ object Routes {
     const val MOTHER_DASHBOARD = "mother_dashboard"
     const val CHECK_IN = "check_in"
     const val EDUCATION = "education"
+    const val CHAT = "chat"
     const val PROVIDER_DASHBOARD = "provider_dashboard"
 }
 
@@ -96,6 +98,7 @@ fun NgaoNavGraph(
                 viewModel = vm,
                 onStartCheckIn = { navController.navigate(Routes.CHECK_IN) },
                 onOpenEducation = { navController.navigate(Routes.EDUCATION) },
+                onOpenChat = { navController.navigate(Routes.CHAT) },
                 onLogout = {
                     scope.launch {
                         repository.signOut()
@@ -105,6 +108,14 @@ fun NgaoNavGraph(
                     }
                 }
             )
+        }
+
+        composable(Routes.CHAT) {
+            var currentName by remember { mutableStateOf("Patient") }
+            androidx.compose.runtime.LaunchedEffect(Unit) {
+                currentName = sessionManager.currentFullName() ?: "Patient"
+            }
+            ChatScreen(userName = currentName, onBack = { navController.popBackStack() })
         }
 
         composable(Routes.CHECK_IN) {
@@ -141,7 +152,8 @@ fun NgaoNavGraph(
                         }
                     }
                 },
-                onOpenEducation = { navController.navigate(Routes.EDUCATION) }
+                onOpenEducation = { navController.navigate(Routes.EDUCATION) },
+                onOpenChat = { navController.navigate(Routes.CHAT) }
             )
         }
     }
